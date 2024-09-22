@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Computer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/1997.jpeg');
+            background-size: 1000px 800px;
+            background-position: right 155px top -50px;
+            background-repeat: no-repeat;
+            background-attachment: relative;
+            background-color: white;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            margin: 200px;
+            margin-top: 0;
+        }
+        #left-menu {
+            background-color: #990000;
+            width: 200px;
+            color: white;
+            padding: 15px;
+            height: 100vh;
+            box-sizing: border-box;
+            padding-top: 50px;
+            border-radius: 20px;
+        }
+        #left-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #left-menu ul li {
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        #left-menu ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        #main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        h1 {
+            color: black;
+            position: relative;
+        }
+        h1 img {
+            height: 90px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .welcome-text {
+            position: absolute;
+            left: 100px;
+            top: 64%;
+            transform: translateY(-50%);
+            margin-left: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .section p {
+            margin: 0;
+        }
+        #scrolling-countries {
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid #990000;
+            background-color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #scrolling-countries ul {
+            padding-left: 10px;
+            margin: 0;
+            list-style-type: none;
+        }
+        #scrolling-countries li {
+            margin-bottom: 10px;
+            color: black;
+            font-size: 18px !important;
+        }
+        #scrolling-countries li a {
+            color: black !important;
+            text-decoration: none;
+        }
+        #scrolling-countries li:hover {
+            background-color: gray;
+            cursor: pointer;
+        }
+        #left-menu button {
+            width: 40%;
+            background-color: #990000;
+            border: none;
+            color: white;
+            padding: 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3), 
+                4px 8px 8px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+        }
+        #whats-hot-bar {
+            background-color: #990000;
+            color: white;
+            padding: 5px;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #whats-hot-section {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+        #whats-hot-section td {
+            border: 1px solid black;
+            padding: 10px;
+            vertical-align: top;
+        }
+        #whats-hot-section tr:not(:last-child) {
+            border-bottom: 1px solid black;
+        }
+        .whats-hot-button {
+            background: linear-gradient(to right, #333333 30px, #FFCC00 30px);
+            color: black;
+            padding: 2px 10px 2px 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            border: 1px solid #000000;
+            font-weight: bold;
+            position: relative;
+        }
+        .whats-hot-button::before {
+            content: "\25BC";
+            position: absolute;
+            left: 10px;
+            color: white;
+            font-size: 0.8em;
+        }
+        details[open] .whats-hot-button::before {
+            content: "\25B2";
+        }
+        .whats-hot-button h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        details {
+            margin-top: 10px;
+        }
+        summary {
+            list-style: none;
+            outline: none;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        hr {
+            height: 4px;
+            background-color: white;
+            border: none;
+        }
+        
+        #info-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px;
+            margin-bottom: 20px;
+        }
+        #info-table td {
+            padding: 15px;
+            vertical-align: top;
+        }
+        .left-column {
+            width: 60%;
+            border-right: none !important;
+            border-left: none !important;
+            border: 10px solid #008ac9;
+        }
+        .right-column {
+            width: 40%;
+            border-color: black !important;
+            border-right: none !important;
+            border-left: 4px solid black !important;
+        }
+        .top-right, .bottom-right {
+            margin-bottom: 15px;
+        }
+        .top-right p {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .top-right h3 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .top-right img {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+        }
+        #info-table h2, #info-table h3 {
+            color: black;
+            margin-top: 0;
+        }
+        #info-table ul {
+            padding-left: 20px;
+        }
+        .separator {
+            border-top: solid black;
+            margin: 0;
+        }
+        .bottom-right img {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+        }
+        .logo-text-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .bmw-logo {
+            height: 220px;
+            width: auto;
+            margin-right: 10px;
+        }
+        .intro-text {
+            font-size: 40px;
+            font-weight: 800 !important;
+            text-align: left;
+            margin: 0;
+        }
+        .highlight {
+            background: linear-gradient(135deg, 
+                #008ac9 0%, 
+                #006b9c 25%, 
+                #004c6e 50%, 
+                #006b9c 75%, 
+                #008ac9 100%
+            );
+            color: white;
+            padding: 10px 20px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            display: inline-block;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .emate {
+            position: relative;
+            height: 100px;
+        }
+        .emate p {
+            text-align: left;
+            font-size: 24px;
+            margin-right: 110px;
+            padding-left: 20px;
+        }
+        .emate img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 130px;
+            width: 40%;
+            max-width: 100px;
+            right: 0;
+            padding-right: 140px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <link rel="icon" href="images/apple-logo.png" type="image/jpeg" sizes="96x96">
+</head>
+<body>
+    <div class="container">
+        <div id="left-menu">
+            <ul>
+                <li><button type="button"><a href="http://web.archive.org/web/19970404064352/http:/www.apple.com/" target="_blank" style="color: white; text-decoration: none;">Find It</a></button></li><br>
+                <li><a href="https://www.apple.com/" target="_blank">Product Information</a></li><br>
+                <li><a href="https://support.apple.com/?cid=gn-ols-home-hp-tab" target="_blank">Customer Support</a></li><br>
+                <li><a href="https://en.wikipedia.org/wiki/Apple_Inc.#Notes" target="_blank">Technology & Research</a></li><br>
+                <li><a href="https://developer.apple.com/" target="_blank">Developer World</a></li><br>
+                <li><a href="https://education.apple.com/forum/apple-groups" target="_blank">Groups & Interests</a></li><br>
+                <li><a href="https://support.apple.com/en-ph/guide/mac-help/mchlb5a3ba69/mac" target="_blank">Resources Online</a></li><br>
+                <li><a href="https://www.apple.com/ph/business/" target="_blank">About Apple</a></li><br>
+                <hr>
+                <br>    
+                <li>Apple Sites Worldwide</li>
+                <div id="scrolling-countries">
+                    <ul>
+                        <li style="text-align: left;"><a href="https://www.apple.com/ch/" target="_blank">Switzerland</a></li>
+                        <li style="text-align: left;"><a href="https://www.apple.com/tw/" target="_blank">Taiwan</a></li>
+                        <li style="text-align: left;"><a href="https://www.apple.com/tr/" target="_blank">Turkey</a></li>
+                        <li style="text-align: left;"><a href="https://www.apple.com/uk/" target="_blank">UK & Ireland</a></li>
+                        <li style="text-align: left;"><a href="https://www.apple.com/us/" target="_blank">United States</a></li>
+                    </ul>
+                </div>
+                <br>
+                <li><button type="button"><a href="http://web.archive.org/web/19970404064352/http:/www.apple.com/" target="_blank" style="color: white; text-decoration: none;">Go</a></button></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <footer style="font-size: 16px;">
+                <p style="text-align: center; margin-top: 100px;"><a href="https://www.apple.com/ph/store" target="_blank" style="color: white; text-decoration: none;">Where to Buy</a></p>
+            </footer>
+        </div>
+        <div id="main-content">
+            <h1 style="text-align: left; font-size: 80px; position: relative;">
+                <img src="images/apple-logo.png" alt="Apple Logo" style="height: 90px; margin-right: 10px;">
+                <span class="welcome-text">Welcome to Apple</span>
+            </h1>
+            <table id="info-table">
+                <tr>
+                    <td class="left-column">
+                        <div class="logo-text-container">
+                            <img src="images/bmw.png" alt="BMW logo" class="bmw-logo">
+                            <h2 class="intro-text">
+                                <span class="highlight">Introducing <br> CyberDrive</span>
+                            </h2>
+                        </div>
+                        <a href="https://archive.org/details/cd-roms" target="_blank" style="color: #000000; text-decoration: none;">
+                            <p style="font-family: cursive; font-weight: bolder; font-size: 28px; text-align: center;">Register today for a free CD-ROM.</p>
+                        </a>
+                    </td>
+                    <td class="right-column">
+                        <div class="top-right">
+                            <div class="top-right">
+                                <h2 style="color: gray; font-weight: 1000; font-size: 30px;">EMATE 300</h2>
+                                <div class="emate">
+                                    <p>
+                                        Mobile, <br> Affordable, <br> & Smart
+                                    </p>
+                                    <img src="images/emate.png" alt="EMATE 300">
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="separator">
+                        <div class="bottom-right">
+                            <img src="images/mars.gif" alt="Movies from Mars">
+                        </div>
+                    </td>                       
+                </tr>
+            </table>
+            <details>
+                <summary>
+                    <div class="whats-hot-button">
+                        <h3 style="margin: 0;">What's Hot</h3>
+                    </div>
+                </summary>
+                <table id="whats-hot-section">
+                    <tr>
+                        <td class="whats-hot-column">
+                            <h2>Discover the Future with iPhone 16 Pro Max</h2>
+                            <p style="text-align: justify; font-size: 18px;">The iPhone 16 Pro Max redefines innovation with its stunning 6.9-inch Super Retina XDR display and robust titanium design. Powered by the A18 Pro chip, this device offers unparalleled performance and efficiency, perfect for high-intensity gaming and multitasking. The advanced camera system, featuring a 48MP main sensor and 5x telephoto lens, ensures you capture every moment in stunning detail. With enhanced battery life, improved durability, and the latest Apple Intelligence features, the iPhone 16 Pro Max is designed to keep you connected and productive like never before.</p>
+                        </td>
+                        <td class="whats-hot-column">
+                            <h2>Unleash Your Potential with Apple Watch Ultra 2</h2>
+                            <p style="text-align: justify; font-size: 18px;">The Apple Watch Ultra 2 is designed for those who push their limits. Featuring a robust titanium case and a stunning 3,000-nit display, this smartwatch ensures visibility even in the brightest conditions. Powered by the new S9 SiP, it offers enhanced performance and efficiency, perfect for tracking your most intense workouts. With advanced health features like sleep apnea notifications and a high-decibel safety siren, the Ultra 2 keeps you safe and informed. Whether you're diving, hiking, or just navigating your day, the Apple Watch Ultra 2 is your ultimate companion.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="whats-hot-column">
+                            <h2>Unleash Creativity with the New iPad Pro</h2>
+                            <p style="text-align: justify; font-size: 18px;">The new iPad Pro is a powerhouse of innovation, featuring the groundbreaking M4 chip and a stunning Ultra Retina XDR display. Available in both 11-inch and 13-inch models, this device offers unparalleled performance and portability. The advanced display technology provides vibrant colors and incredible brightness, perfect for creative professionals and media enthusiasts. With support for the new Apple Pencil Pro and a thinner, lighter Magic Keyboard, the iPad Pro is designed to enhance your productivity and creativity. Whether you're editing videos, designing graphics, or simply browsing the web, the new iPad Pro delivers an exceptional experience.</p>
+                        </td>
+                        <td class="whats-hot-column">
+                            <h2>Experience Unmatched Sound with AirPods Pro 2</h2>
+                            <p style="text-align: justify; font-size: 18px;">The AirPods Pro 2 elevate your audio experience with advanced features and a sleek design. Powered by the new H2 chip, these earbuds deliver superior sound quality, enhanced Active Noise Cancellation, and Adaptive Transparency. The personalized Spatial Audio immerses you in a rich, three-dimensional soundscape, while the improved battery life ensures you stay connected longer. With intuitive touch controls and a comfortable fit, the AirPods Pro 2 is perfect for any activity, from calls to workouts.</p>
+                        </td>
+                    </tr>
+                </table>
+            </details>
+        </div>
+    </div>
+</body>
+</html>
